@@ -18,6 +18,19 @@
 # print(current_datetime.second)      # 53
 # print(current_datetime.microsecond) # 644484
 
+'''------'''
+# from datetime import datetime
+
+# date = datetime(year=2023, month=10, day=31)
+# print(date)
+# date = datetime(year=2023, month=10, day=31, hour=19, minute=37, second=55)
+# print(date)
+# print(date.date())
+# print(date.time())
+
+# print(datetime.now())
+# print(datetime.today())
+
 ''' В об'єкта datetime є методи, щоб отримати дату (без часу) та час (без дати): '''
 
 # from datetime import datetime

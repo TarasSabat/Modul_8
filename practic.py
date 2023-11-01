@@ -227,4 +227,4 @@
                                                           # <class 'dict'> словник
 #     print(numbers, type(numbers))
 
-get_numbers_short(20)
+# get_numbers_short(20)
