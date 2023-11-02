@@ -82,6 +82,17 @@ timedelta
 # print(difference)                   # 365 days, 0:00:00
 # print(difference.total_seconds())   # 31536000.0
 
+'''-------'''
+# from datetime import datetime, timedelta
+# now = datetime.now()
+# interval = timedelta(days=5)
+# result_date = now + interval
+# print(result_date)
+# ##
+# interval = timedelta(days=15)
+# result_date = now - interval
+# print(result_date)
+
 ''' Об'єкти timedelta можна створювати самостійно, щоб отримати дату/час віддалену від початкової: '''
 
 # from datetime import datetime, timedelta
@@ -122,6 +133,23 @@ timestamp
 # ts += 100_000
 # print(datetime.fromtimestamp(ts))   # 2020-01-08 17:46:40
 
+'''--------'''
+# from datetime import datetime
+
+# d = datetime.now()
+# print(type(d.timestamp))
+
+# Перетворення timestamp в рядок
+# from datetime import datetime
+
+# timestamp = 1625309472.357246
+# d = datetime.fromtimestamp(timestamp) # отримання типу datetime з числа stamp  
+# print(d)
+# d_int = datetime.fromtimestamp(int(timestamp))  # переведення з datetime в int
+# print(d_int)                          
+# str_date = d_int.strftime('%d-%m-%Y, %H:%M:%S')  # переведення з int  в str
+# print(str_date)
+
 '''
 Перетворення в рядок і з рядка
 Коли потрібно перетворити дату/час в рядок, ви можете скористатися функцією str, яка перетворить datetime у рядок. Але часто формат такого перетворення незручний і в Python є окрема мінімова для опису, як перетворити дату/час в рядок:
@@ -137,14 +165,29 @@ timestamp
 # from datetime import datetime
 
 # s = '10 January 2020'
-# print(datetime.strptime(s, '%d %B %Y')) # 2020-01-10 00:00:00
+# print(datetime.strptime(s, '%d %B %Y')) # 2020-01-10 00:00:00 перетворення строки в datetime (потрібно підбирати такий же ж стиль як і у str)
 
+'''-------'''
+# from datetime import datetime
+# td = '24.02.2022'
+# d = datetime.strptime(td, '%d.%m.%Y') # перетворення строки в datetime (потрібно підбирати такий же ж стиль як і у str)
+# print(type(d))
+# print(d)
+# print(d.date())
+# print(d.time())
+# print(d.year, d.month, d.day, d.minute)
+##
+# temp_replace = d.replace(month=5, day=11, minute=15) # заміна даних в об'єкті
+# print(temp_replace)
+##
+# str_temp_replace = temp_replace.strftime('%y/%d/%m %H:%M:%S') # перетворення datetime в строку (передіємо формат який нам потрібний у строці)
+# print(str_temp_replace)
+# print(datetime.now().strftime('%Y %B %d')) # перетворення поточної години з datetime в строку (передіємо формат який нам потрібний у строці)
 '''
 Генерація випадкових чисел
 Для генерації випадкових (псевдовипадкових) чисел у Python є пакет random. Він досить хороший для ряду побутових завдань, але не для криптографії. На жаль, вбудований генератор псевдовипадкових чисел досить скоро починає повторюватися і не є достатньо криптостійким. Проте, для прикладних завдань поза сферою криптографії його цілком вистачає.
 Отримання випадкового цілого числа з рівномірного розподілу в інтервалі між 1 та 1000 включно:
 '''
-
 # import random
 
 # random.randint(1, 1000)
@@ -155,6 +198,18 @@ timestamp
 
 # random.random()
 
+###
+
+# import random
+
+# random.seed()
+# print(random.random())
+# print(random.randint(1, 10))
+
+# for _ in range(10):
+   #  print(random.randrange(1, 10), end=" ")  # 4 7 8 5 8 8 3 1 7 4 - 10 не входить
+    # print(random.randint(1, 10), end=' ')  # 1 1 10 5 9 9 3 5 7 5 - 10 входить
+
 ''' Коли у вас є список об'єктів і вам потрібно перемішати порядок елементів в цьому списку на випадковий: '''
 
 # import random
@@ -162,6 +217,17 @@ timestamp
 # fruits = ['apple', 'banana', 'orange']
 # random.shuffle(fruits)
 # print(fruits)   # ['banana', 'orange', 'apple']
+
+###
+# import random
+# l = list(range(1, 40))
+# print(l)
+# random.shuffle(l) # перемішує елементи у рандомному порядку
+# print(l)
+
+# print(random.choice(l))      # повертає випадковий елемент з непустої послідовності
+# print(random.sample(l, k = 5))   # повертає k (можна просто ввести число) випадкових елементів з непустої послідовності
+# print(random.sample('Hello world, nice to meet you', 5))
 
 ''' Якщо потрібно вибрати випадковий елемент зі списку: '''
 
@@ -193,6 +259,34 @@ timestamp
 
 # print(0.1 + 0.2 == 0.3)     # False
 # print(0.1 + 0.2)            # 0.30000000000000004
+
+###
+
+# from decimal import Decimal, getcontext
+
+# f = 0.2 + 0.1 + 0.3 - 0.5
+# print(f)
+# result = Decimal('0.2') + Decimal('0.1') + Decimal('0.3') - Decimal('0.5') # для отримання більш точних даних
+# print(result)
+
+# n = Decimal('1') / Decimal('3')
+# print(n)
+# print(type(n))
+# getcontext().prec = 6     # встановлення кількості знаків числа без врахування 0 перед комою (прийнято 4 знаки після коми)
+# n = Decimal('1') / Decimal('3')
+# print(n)
+# n = Decimal('100') / Decimal('3')
+# print(n)
+
+###
+
+# Створення Decimal із дійсних чисел
+
+# from decimal import Decimal
+
+# print(0.1 + 0.2)                             # 0.30000000000000004
+# print(Decimal(0.1) + Decimal(0.2))           # 0.3000000000000000166533453694 (ніколи не передавати в Decimal число з плаваючою крапкою)
+# print(Decimal(str(0.1)) + Decimal(str(0.2))) # 0.3 (потрібно перевести до строки тоді робити Decimal)  
 
 '''
 Перший вираз може збити вас з пантелику, оскільки математика стверджує однозначно, що 0.1 + 0.2 = 0.3. Але помилка округлення під час виконання обчислювальних операцій з дійсними числами у двійковій системі обчислення призводить до такої неоднозначності.
@@ -280,18 +374,18 @@ nan, не число
 
 person = ('Mick', 'Nitch', 35, 'Boston', '01146')
 
-Після створення person там, де ви його використовуєте, вам потрібно пам'ятати, що ім'я на першому місці, а вік — на третьому. Щоб не плутатися, доведеться постійно повертатися до коду, де створюється person. Це незручно і спеціально для таких випадків додали іменовані кортежі:
+Після створення person там, де ви його використовуєте, вам потрібно пам'ятати, що ім'я на першому місці, а вік — на третьому. Щоб не плутатися, доведеться постійно повертатися до коду, де створюється person. Це незручно і спеціально для таких випадків додали іменовані кортежі:'''
 
-import collections
+# import collections
 
-Person = collections.namedtuple('Person', ['name', 'last_name', 'age', 'birth_place', 'post_index'])
-person = Person('Mick', 'Nitch', 35, 'Boston', '01146')
-person.name         # 'Mick'
-person.post_index   # '01146'
-person.age          # 35
-person[3]           # 'Boston'
+# Person = collections.namedtuple('Person', ['name', 'last_name', 'age', 'birth_place', 'post_index'])
+# person = Person('Mick', 'Nitch', 35, 'Boston', '01146')
+# person.name         # 'Mick'
+# person.post_index   # '01146'
+# person.age          # 35
+# person[3]           # 'Boston'
 
-
+'''
 Тепер, використовуючи Person, ви можете створювати кортежі, які обов'язково повинні містити 5 елементів і у таких кортежів, окрім індексів, є атрибути. Звертатися до елементів такого кортежу можна як за індексом, так і за ім'ям. За такого підходу вам достатньо один раз визначити Person і більше не повертатися до нього, щоб згадати, який елемент за що відповідає.
 '''
 
@@ -457,3 +551,47 @@ comprehensions — це синтаксична конструкція Python, с
 '''
 В цьому прикладі ми записали в словник sq числа від 1 до 5 у якості ключів, а їх квадрати як значення. Основна відмінність за синтаксисом — це двокрапка між ключем і значенням в лівій частині виразу
 '''
+
+"""
+Метод isoformat() використовується для перетворення об'єкта дати і часу в рядок у форматі ISO 8601,
+він має наступний вигляд: YYYY-MM-DDTHH:MM:SS.ssssss
+де:
+YYYY представляє рік (наприклад, "2023").
+MM представляє місяць (наприклад, "10" для жовтня).
+DD представляє день (наприклад, "23").
+T є роздільником між датою та часом.
+HH представляє години (від 00 до 23).
+MM представляє хвилини (від 00 до 59).
+SS представляє секунди (від 00 до 59).
+ssssss представляє мікросекунди (опціонально).
+"""
+# from datetime import datetime
+# now = datetime.now()
+# iso_date_time = now.isoformat()
+# print(iso_date_time)
+# iso_date_time_timezone = now.isoformat() + now.astimezone().strftime('%z')
+# print(iso_date_time_timezone)
+
+''' Округлення чисел '''
+
+"""
+Згідно з офіційною документацією:
+
+- ROUND_FLOOR: число округлюється до негативної нескінченності.
+- ROUND_CEILING: число округлюється до нескінченності або позитивної нескінченності.
+- ROUND_HALF_DOWN: числа округлюються до найближчого числа. Якщо є нічия, число округлюється до нуля. Зв'язки - це рівновіддалені числа, які можна округляти як у більшу, так і меншу сторону. Наприклад, таке число, як 4,25 можна округлити як у бік 4,2, так і 4,3.
+- ROUND_HALF_UP: числа округлюються до найближчого числа. Якщо є нічия, число округлюється від нуля.
+- ROUND_UP: число округлюється від нуля.
+- ROUND_DOWN: число округлюється до нуля.
+- ROUND_HALF_EVEN: числа округлюються до найближчого числа. Будь-які зв'язки округлюються до найближчого парного цілого числа.
+- ROUND_05UP: числа округлюються від нуля, якщо останнє число дорівнює 0 або 5. Якщо ні, числа округлюються до нуля.
+
+За замовчуванням округлення описується константою ROUND_HALF_EVEN
+"""
+# from decimal import Decimal, ROUND_HALF_EVEN, ROUND_HALF_UP
+
+# num = Decimal('1.45')
+# print(num.quantize(Decimal('1.0'), rounding=ROUND_HALF_EVEN))  # по замовчуванню від 6 by default 
+# print(num.quantize(Decimal('1.0'), rounding=ROUND_HALF_UP))  # заокруглює по правилу від 5 
+
+# print(Decimal('3.14159').quantize(Decimal('1.0')))
