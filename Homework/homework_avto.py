@@ -141,8 +141,31 @@ participants = {
 І в той же час, якщо функція convert_list приймає в параметрі cats список словників, то результатом буде зворотна операція та функція поверне список іменованих кортежів.
 Для визначення типу параметра cats використовуйте функцію isinstance.
 '''
-import collections
+# from collections import namedtuple
 
-Cat = collections.namedtuple("Cat", ["nickname", "age", "owner"])
+# Cat = namedtuple('Cat', ['nickname', 'age', 'owner'])
 
-def convert_list(cats):
+# def convert_list(cats):
+#     if isinstance(cats, list) and all(isinstance(cat, Cat) for cat in cats):
+#         return [{'nickname': cat.nickname, 'age': cat.age, 'owner': cat.owner} for cat in cats]
+#     elif isinstance(cats, list) and all(isinstance(cat, dict) for cat in cats):
+#         return [Cat(cat['nickname'], cat['age'], cat['owner']) for cat in cats]
+#     else:
+#         raise ValueError("Неправильний тип вхідного параметру cats")
+    
+''' № 8
+Є список IP адрес:
+IP = [
+    "85.157.172.253",
+    ...
+]
+Реалізуйте дві функції. Перша get_count_visits_from_ip за допомогою Counter повертатиме словник, де ключ це IP, а значення – кількість входжень у вказаний список.
+Приклад:
+{
+    '85.157.172.253': 2,
+    ...
+}
+Друга функція get_frequent_visit_from_ip повертає кортеж з найбільш часто уживаним в списку IP і кількістю його появ в списку.
+Пример:
+('66.50.38.43', 4)
+'''

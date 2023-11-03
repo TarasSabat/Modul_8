@@ -1,3 +1,80 @@
+'''  comprehensions '''
+''' List Comprehensions:   [expression for element in iterable if condition] '''
+
+# even_nums = []
+# for x in range(21):
+#     if x % 2 == 0:
+#         even_nums.append(x)
+# print(even_nums)
+
+# if - те саме в одну строку
+
+# print([element for element in range(21) if element % 2 == 0 if element % 5 == 0 if element == 20])
+
+# if-else- те саме в одну строку
+
+# a = ['Парне' if element % 2 == 0 else 'Не парне' for element in range(10)]
+# print(a)
+
+''' if-elif-else condition '''
+# l = [1, 2, 3, 4, 5]
+# for v in l:
+#     if v == 1:
+#         print('yes')
+#     else:
+#         if v == 2:
+#             print('no')
+#         else:
+#             print('idle')
+
+# if-elif-else condition - те саме в одну строку
+
+# print(['yes' if v == 1 else 'no' if v == 2 else 'idle' for v in l])
+
+'''
+# List: Наприклад, для температур треба врахувати помилку і підвищити кожну температуру на 0.5 градуса.
+'''
+
+# temps = [0.5, 0.0, -3.5, 0.0, 2.0, 3.5, 0.5, -4.0, -3.5, -0.5, -3.5, -10.5, -14.0, -1.0, -1.0]
+# fixed_t = [t + 0.5 for t in temps]
+# print(fixed_t)
+
+''' Set: для того ж списку температур знайдемо унікальні значення '''
+
+# unique_t = {t + 0.5 for t in temps}
+# print(unique_t)
+
+# Set Comprehension if-else
+
+# l = [1, 2, 3, 4, 5]
+# new_set = {el ** 2 for el in l}
+# print(new_set)
+
+''' Dict: створимо словник відповідності старої та виправленої температури {old: new} '''
+
+# dict_t = {t: t + 0.5 for t in temps}
+# print(dict_t)
+
+''' Dictionary Comprehension:    {<new_key>:<new_value> for <item> in <iterable>} '''
+
+# days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+# temp_C = [30.5, 32.6, 31.8, 33.4, 29.8, 30.2, 29.9]
+# temperature = {day: temper for day, temper in zip(days, temp_C)}
+# print(temperature)
+
+# Dict Comprehension if-else
+# numbers = range(10)
+# new_dict_for = {}
+
+# Add values to `new_dict` using for loop
+# for n in numbers:
+#     if n % 2 == 0:
+#         new_dict_for[n] = n ** 2
+# print(new_dict_for)
+
+# те саме в одну строку
+# print({n: n ** 2 for n in range(10) if n % 2 == 0})
+
 ''' З допомогою datetime заміряємо тривалістьвиконання оперції'''
 # from datetime import datetime
 
@@ -32,6 +109,49 @@
 
 # print(sum(for_times) / n)
 # print(sum(comprehensions_times) / n)
+
+"""
+Напишіть функцію, яка приймає на вхід три
+цілих числа: день, місяць та рік. Функція має повертати порядковий
+номер заданого дня у вказаному році.
+​Результат функції: номер року та порядковий номер дня у цьому
+році - обидва у цілісному форматі.
+"""
+# from datetime import datetime, date
+
+# def date_test(day: int, month: int, year: int):
+#     d = date(year, month, day).toordinal()   # toordinal - кількість днів, що пройшли з 01.01.0000. 
+#     diff = d - date(year, 1, 1).toordinal() + 1
+#     return year, diff
+
+# print(date_test(31, 12, 2023))
+# print(date_test(1, 1, 2023))
+# print(date_test(2, 11, 2023))
+
+''' Написати функцію, яка визначає який день тижня у певної дати у вигляді "день-місяць-рік". '''
+# from datetime import datetime
+
+# days_name = {
+#     0: "понеділок",
+#     1: "вівторок",
+#     2: "середа",
+#     3: "четвер",
+#     4: "п'ятниця",
+#     5: "субота",
+#     6: "неділя",
+# }
+
+# def day_of_the_week(date: str):
+#     # date = '02-11-2023'
+#     d, m, y = date.split('-')
+#     date = datetime(day=int(d), month=int(m), year=int(y))
+#     d_name = days_name.get(date.weekday())
+#     return d_name
+
+# print(day_of_the_week('2-11-2023'))
+# print(day_of_the_week('2-11-2023'))
+# print(day_of_the_week('11-11-2022'))
+# print(day_of_the_week('13-12-2023'))
 
 ''' Розрахунок кількості днів до вказаної дати і запис інфрмації у файл '''
 # from datetime import datetime
@@ -127,6 +247,90 @@ random.randint(A, B) - випадкове ціле число N, A ≤ N ≤ B.
 # else:
 #     print('Випало три решки')
 
+"""
+Генерація автомобільного номера. Дві літери, чотири цифри, дві літери.
+Для Київська області код АI
+Останні дві літери зі списку: A, B, C, E, H, I, K, M, O, P, T, X
+(використовуються українські літери, що мають графічні відповідники у латиниці)
+"""
+# import random
+
+# start = "AI"
+# set_of_letters = ["A", "B", "C", "E", "H", "I", "K", "M", "O", "P", "T", "X"]
+# set_of_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+# numbers = "".join(random.choices(set_of_numbers, k=4))
+# last_char = "".join(random.choices(set_of_letters, k=2))
+# print(f'{start} {numbers} {last_char}')
+
+"""
+Виконати симулювання 1000 викидів гральних кісток. Порівняти очікуваний результат ймовірності випадання з
+реальним.
+Очікуваний відсоток
+2: 2,78  # 2: - це сума костів, яка випаде. 2,78 - ймовірність
+3: 5,56
+4: 8,33
+5: 11,11
+6: 13,89
+7: 16,67
+8: 13,89
+9: 11,11
+10: 8,33
+11: 5,56
+12: 2,78
+результат зберегти у текстовий файл формату md.
+"""
+# import random
+
+# NUMBER_ATTEMPTS = 1000
+
+# expected_outcome = {
+#     "2": 2.78,
+#     "3": 5.56,
+#     "4": 8.33,
+#     "5": 11.11,
+#     "6": 13.89,
+#     "7": 16.67,
+#     "8": 13.89,
+#     "9": 11.11,
+#     "10": 8.33,
+#     "11": 5.56,
+#     "12": 2.78
+# }
+
+# def dice_roll():
+#     return random.randint(1, 6)
+
+# def experement():
+#     values = {
+#         "2": 0,
+#         "3": 0,
+#         "4": 0,
+#         "5": 0,
+#         "6": 0,
+#         "7": 0,
+#         "8": 0,
+#         "9": 0,
+#         "10": 0,
+#         "11": 0,
+#         "12": 0
+#     }
+#     random.seed()
+
+#     for el in range(NUMBER_ATTEMPTS):
+#         roll_one = dice_roll()
+#         roll_two = dice_roll()
+#         sum_roll = str(roll_one + roll_two)
+#         current = values.get(sum_roll)
+#         values.update({sum_roll: current + 1})
+
+#     for key, value in values.items():
+#         values[key] = round(value / NUMBER_ATTEMPTS * 100, 2)
+#     return values
+
+# result = experement()
+# print(result)
+
 ''' Cillection '''
 # from collections import namedtuple
 
@@ -208,12 +412,50 @@ random.randint(A, B) - випадкове ціле число N, A ≤ N ≤ B.
 
 # print(tem.most_common()[-1]) # повертає найменшу зустрічаємий елемент - (-14.0, 1)
 
+"""
+Реалізувати функцію, яка повертає n чисел, що найчастіше зустрічаються і n найменш часто зустрічаються, з файлу
+"""
+# from collections import Counter
+
+# def num_counter(n):
+#     with open('numbers.txt', 'r', encoding='utf-8') as file:
+#         data = file.read()
+
+#     counter = Counter([int(number) for number in data.split(',')])
+#     ordered = counter.most_common()
+#     return [item for item, _ in ordered[:n]], [item for item, _ in ordered[-n:]]
+
+# result = num_counter(5)
+# max_num, min_num = result
+# print(max_num)
+# print(min_num)
+
 ''' defaultdict 
 - спеціальний словник, який створює значення для ключів, яктх в словнику не було за запитом '''
 
 # from collections import defaultdict
 
 # text = '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum sollicitudin libero in accumsan. Vestibulum tincidunt nisi fringilla ligula faucibus blandit. Integer vitae porttitor odio. Mauris aliquam velit nec sem scelerisque cursus. Suspendisse malesuada, mauris non iaculis euismod, nisl ex facilisis nisi, ut molestie orci neque id tortor. Vivamus aliquet magna ut pellentesque blandit. Morbi eu turpis ex. Duis vitae sodales nulla, nec tincidunt nulla. Mauris interdum, ex sit amet congue facilisis, felis dolor fringilla orci, a tincidunt magna augue et sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et dui eu felis hendrerit faucibus eu et eros. Suspendisse magna nisl, dapibus nec nisi et, hendrerit dictum nibh. Donec mauris justo, pulvinar ut lobortis vitae, lacinia a dui. Suspendisse dolor lectus, ornare quis elit eu, lobortis feugiat libero.'''
+
+"""
+defaultdict: Зручно, якщо ми розбиваємо на різні списки набори телефонних операторів
+"""
+# from collections import defaultdict
+
+# phone_numbers = ['0509993636', '0679993636', '0959993636', '0969993636', '0509993637', '0639993636', '0509993632',
+#                  '0339993632']
+
+# phone_operator_numbers = defaultdict(list)
+# for phone in phone_numbers:
+#     if phone.startswith('050') or phone.startswith('095'):
+#         phone_operator_numbers['Vodafone'].append(phone)
+#     elif phone.startswith('067') or phone.startswith('096'):
+#         phone_operator_numbers['Kyivstar'].append(phone)
+#     elif phone.startswith('063') or phone.startswith('093'):
+#         phone_operator_numbers['Lifeceil'].append(phone)
+#     else:
+#         phone_operator_numbers['Unknown'].append(phone)
+# print(phone_operator_numbers)
 
 ''' Звичайний спосіб '''
 # def get_word_list(text):
@@ -373,4 +615,61 @@ rotate(n) - послідовно переносить n елементів із 
 # a = math.log(math.pow(y, -math.sqrt(math.fabs(x)))) * (math.sin(x) + math.exp(x + y))
 # print(a)
 
+"""
+LIFO (англ. last in, first out, "останнім прийшов - першим пішов") - спосіб організації даних або іншими словами
+Стек (Stack). У структурованому лінійному списку, організованому за принципом LIFO,
+елементи можуть додаватися та вибиратися з одного кінця, званого «вершиною списку».
+"""
+# from collections import deque
 
+# MAX_LEN = 5
+
+# lifo = deque(maxlen=MAX_LEN)
+# def push(element):
+#     lifo.appendleft(element)
+
+# def pop():
+#     return lifo.popleft()
+
+# push('Nazar')
+# push('Olga')
+# push('Iryna')
+# push('Ivan')
+# push('Petro')
+# print(lifo)
+# push('Ihor')
+# print(lifo)
+# name = pop()
+# print(name)
+# print(lifo)
+
+"""
+FIFO (англ. first in, first out - "першим прийшов - першим пішов") - спосіб організації даних або іншими словами черга.
+Цей вислів описує принцип технічної обробки черги або обслуговування конфліктних вимог
+шляхом упорядкування процесу за принципом: "першим прийшов - першим обслужений".
+Той, хто приходить першим, той і обслуговується першим, хто прийде наступним чекає,
+поки обслуговування першого не буде закінчено, і так далі.
+"""
+# from collections import deque
+
+# MAX_LEN = 5
+
+# fifo = deque(maxlen=MAX_LEN)
+
+# def push(element):
+#     fifo.append(element)
+
+# def pop():
+#     return fifo.popleft()
+
+# push('Nazar')
+# push('Olga')
+# push('Iryna')
+# push('Ivan')
+# push('Petro')
+# print(fifo)
+# name = pop()
+# print(name)
+# print(fifo)
+# push('Oksana')
+# print(fifo)

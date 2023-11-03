@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9810e429-72f2-40f9-8b27-b37100b221fa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/homework_avto.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/homework_avto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/konspekt.py" beforeDir="false" afterPath="$PROJECT_DIR$/konspekt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/practic.py" beforeDir="false" afterPath="$PROJECT_DIR$/practic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IT/GoIT/Modul_8&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/IT/GoIT/Modul_7&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -44,5 +49,15 @@
       <updated>1698408705076</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Homework_mentor/homework_mentor.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
