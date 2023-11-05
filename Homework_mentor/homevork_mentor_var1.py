@@ -15,7 +15,7 @@ USERS = [{"name": "Bill", "birthday": date(year=2001, month=11, day=7)},
 def get_birthdays_per_week(users):
     WEEKDAYS = {"Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": []}
     
-    date_today = date(year=2023, month=12, day=26) #date.today()
+    date_today = date.today()
     day_today = date_today.strftime('%A')         # строка день неділі
     
     td_0 = timedelta(days=0) 
@@ -30,7 +30,7 @@ def get_birthdays_per_week(users):
         if el['birthday'].month == 1 and el['birthday'].day <= 7:   # and el['birthday'].year > date_today.year: 
             el['birthday'] = el['birthday'].replace(year=date_today.year + 1)
             time_delta = el['birthday'] - date_today
-            print(time_delta)
+             
             if time_delta <= td_0:                                          # д.н. які минуль
                 continue
             elif time_delta >= td_7:                                    # д.н. які ще  будуть 
