@@ -6,17 +6,17 @@
 
 ##У результаті виклику now() ми отримуємо об'єкт datetime, у якого є ряд корисних атрибутів:
 
-# from datetime import datetime
+from datetime import datetime
 
-# current_datetime = datetime.now()
+current_datetime = datetime.now()
 
-# print(current_datetime.year)        # 2023
-# print(current_datetime.month)       # 10
-# print(current_datetime.day)         # 26
-# print(current_datetime.hour)        # 12
-# print(current_datetime.minute)      # 33
-# print(current_datetime.second)      # 53
-# print(current_datetime.microsecond) # 644484
+print(current_datetime.year)        # 2023
+print(current_datetime.month)       # 10
+print(current_datetime.day)         # 26
+print(current_datetime.hour)        # 12
+print(current_datetime.minute)      # 33
+print(current_datetime.second)      # 53
+print(current_datetime.microsecond) # 644484
 
 '''------'''
 # from datetime import datetime
