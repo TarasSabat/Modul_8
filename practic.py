@@ -370,9 +370,9 @@ random.randint(A, B) - випадкове ціле число N, A ≤ N ≤ B.
 
 
 ''' Counter '''
-# from collections import Counter
+from collections import Counter
 
-# text = '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum sollicitudin libero in accumsan. Vestibulum tincidunt nisi fringilla ligula faucibus blandit. Integer vitae porttitor odio. Mauris aliquam velit nec sem scelerisque cursus. Suspendisse malesuada, mauris non iaculis euismod, nisl ex facilisis nisi, ut molestie orci neque id tortor. Vivamus aliquet magna ut pellentesque blandit. Morbi eu turpis ex. Duis vitae sodales nulla, nec tincidunt nulla. Mauris interdum, ex sit amet congue facilisis, felis dolor fringilla orci, a tincidunt magna augue et sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et dui eu felis hendrerit faucibus eu et eros. Suspendisse magna nisl, dapibus nec nisi et, hendrerit dictum nibh. Donec mauris justo, pulvinar ut lobortis vitae, lacinia a dui. Suspendisse dolor lectus, ornare quis elit eu, lobortis feugiat libero.'''
+text = '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum sollicitudin libero in accumsan. Vestibulum tincidunt nisi fringilla ligula faucibus blandit. Integer vitae porttitor odio. Mauris aliquam velit nec sem scelerisque cursus. Suspendisse malesuada, mauris non iaculis euismod, nisl ex facilisis nisi, ut molestie orci neque id tortor. Vivamus aliquet magna ut pellentesque blandit. Morbi eu turpis ex. Duis vitae sodales nulla, nec tincidunt nulla. Mauris interdum, ex sit amet congue facilisis, felis dolor fringilla orci, a tincidunt magna augue et sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et dui eu felis hendrerit faucibus eu et eros. Suspendisse magna nisl, dapibus nec nisi et, hendrerit dictum nibh. Donec mauris justo, pulvinar ut lobortis vitae, lacinia a dui. Suspendisse dolor lectus, ornare quis elit eu, lobortis feugiat libero.'''
 
 ''' Звичайний спосіб '''
 # def get_count_chars(text):
