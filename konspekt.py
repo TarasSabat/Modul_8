@@ -429,6 +429,19 @@ person = ('Mick', 'Nitch', 35, 'Boston', '01146')
 # c.subtract(d)
 # print(c)    # Counter({'a': 3, 'b': 0, 'c': -3, 'd': -6})
 
+''' Counter. Підрахунок кількості кожного символа у строці. Результат повернути у форматі словника '''
+
+# count_letter = {}
+# for ch in input():
+#     count_letter[ch] = count_letter.get(ch, 0) + 1
+# print(count_letter)
+
+# ### те саме за допомогою Counter
+
+# from collections import Counter
+
+# print(f'{dict(Counter(input()))}')
+
 '''
 defaultdict
 Це спеціальний словник, який створює значення для ключів, яких в словнику не було за запитом. Наприклад, у вас є список слів і ви хочете розбити його на декілька списків, залежно від першої літери слова.
