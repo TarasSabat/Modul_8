@@ -6,17 +6,17 @@
 
 ##У результаті виклику now() ми отримуємо об'єкт datetime, у якого є ряд корисних атрибутів:
 
-from datetime import datetime
-
-current_datetime = datetime.now()
-
-print(current_datetime.year)        # 2023
-print(current_datetime.month)       # 10
-print(current_datetime.day)         # 26
-print(current_datetime.hour)        # 12
-print(current_datetime.minute)      # 33
-print(current_datetime.second)      # 53
-print(current_datetime.microsecond) # 644484
+# from datetime import datetime
+#
+# current_datetime = datetime.now()
+#
+# print(current_datetime.year)        # 2023
+# print(current_datetime.month)       # 10
+# print(current_datetime.day)         # 26
+# print(current_datetime.hour)        # 12
+# print(current_datetime.minute)      # 33
+# print(current_datetime.second)      # 53
+# print(current_datetime.microsecond) # 644484
 
 '''------'''
 # from datetime import datetime
@@ -70,21 +70,24 @@ print(current_datetime.microsecond) # 644484
 
 '''
 timedelta
-Якщо відняти від одного datetime об'єкту інший, то отримаємо timedelta об'єкт. Він відповідає за відрізок часу між двома датами.
+Якщо відняти від одного datetime об'єкту інший, то отримаємо timedelta об'єкт. Він відповідає за відрізок часу     
+між двома датами.
 '''
+from datetime import datetime
 
-# from datetime import datetime
+seventh_day_2019 = datetime(year=2019, month=1, day=7, hour=14)
+seventh_day_2020 = datetime(year=2020, month=1, day=7, hour=14)
+print(seventh_day_2019)
 
-# seventh_day_2019 = datetime(year=2019, month=1, day=7, hour=14)
-# seventh_day_2020 = datetime(year=2020, month=1, day=7, hour=14)
 
-# difference = seventh_day_2020 - seventh_day_2019
-# print(difference)                   # 365 days, 0:00:00
-# print(difference.total_seconds())   # 31536000.0
+difference = seventh_day_2020 - seventh_day_2019
+print(difference)                   # 365 days, 0:00:00
+print(difference.total_seconds())   # 31536000.0
 
 '''-------'''
 # from datetime import datetime, timedelta
 # now = datetime.now()
+# print(now.date())
 # interval = timedelta(days=5)
 # result_date = now + interval
 # print(result_date)
@@ -165,7 +168,8 @@ timestamp
 # from datetime import datetime
 
 # s = '10 January 2020'
-# print(datetime.strptime(s, '%d %B %Y')) # 2020-01-10 00:00:00 перетворення строки в datetime (потрібно підбирати такий же ж стиль як і у str)
+# print(datetime.strptime(s, '%d %B %Y')) # 2020-01-10 00:00:00 перетворення строки в datetime (потрібно
+# підбирати такий же ж стиль як і у str)
 
 '''-------'''
 # from datetime import datetime

@@ -24,6 +24,7 @@ def get_birthdays_per_week(users):
     this_year = False
     
     if not users:
+
         return {}
 
     for el in users:
